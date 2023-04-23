@@ -1,0 +1,56 @@
+.container_Task {
+  width: 100%;
+  height: 8.75%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-left: 2vw;
+  padding-right: 2vw;
+  background-color: rgba(4, 0, 255, 0.096);
+  border-radius: 12.5px;
+  margin-bottom: 1vh;
+}
+
+.container_Task p {
+  margin-top: 0 !important;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 2;
+  font-size: 1.05rem;
+  /* text-transform: uppercase; */
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+
+.container_Task .items-container {
+  position: absolute;
+  right: 10%;
+
+  visibility: hidden;
+
+  width: 7.5vw;
+  height: 5vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container_Task span {
+  cursor: pointer;
+}
+
+.container_Task .items-container .edit {
+  color: gray;
+}
+
+.container_Task .items-container .delete {
+  color: red;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .container_Task .items-container {
+    right: 15%;
+  }
+}

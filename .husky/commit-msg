@@ -1,0 +1,23 @@
+#!/bin/sh
+if ! head -1 "$1" | grep -qE "^(feat|fix|ci|chore|docs|test|style|refactor|perf|build|revert)(\(.+?\))?: .{1,}$"; then
+    echo "Aborting commit. Your commit message is invalid." >&2
+    echo "It should look like: <type>(ticket): Task." >&2
+    echo "For example: feat(sm-19): Login page completed." >&2
+    echo "- Types list:" >&2
+    echo "- feat: a new feature is introduced with the changes." >&2
+    echo "- fix: a bug fix has occurred." >&2
+    echo "- chore: changes that do not relate to a fix or feature and don't modify src or test files (for example updating dependencies)." >&2
+    echo "- refactor: refactored code that neither fixes a bug nor adds a feature." >&2
+    echo "- docs: updates to documentation such as a the README or other markdown files." >&2
+    echo "- style: changes that do not affect the meaning of the code, likely related to code formatting such as white-space, missing semi-colons, and so on." >&2
+    echo "- test: including new or correcting previous tests." >&2
+    echo "- perf: performance improvements." >&2
+    echo "- ci: continuous integration related." >&2
+    echo "- build: changes that affect the build system or external dependencies." >&2
+    echo "- revert: reverts a previous commit." >&2
+    exit 1
+fi
+if ! head -1 "$1" | grep -qE "^.{1,88}$"; then
+    echo "Aborting commit. Your commit message is too long." >&2
+    exit 1
+fi
